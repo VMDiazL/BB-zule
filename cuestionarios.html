@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cuestionarios - Vacunas</title>
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Proyecto Vacunas</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="documentos.html">Documentos</a></li>
+          <li><a href="cuestionarios.html">Cuestionarios</a></li>
+          <li><a href="calculadora.html">Calculadora</a></li>
+          <li><a href="foro.html">Foro</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Cuestionario</h2>
+        <form id="quiz-form">
+          <div id="preguntas-container"></div>
+          <button type="submit" id="enviar-respuestas">
+            Enviar Respuestas
+          </button>
+        </form>
+        <!-- Modal para resultados -->
+        <div id="modal-resultados" class="modal hidden">
+          <div class="modal-contenido">
+            <h3>Resultados</h3>
+            <div id="detalle-resultados"></div>
+            <p>
+              Respuestas correctas: <span id="correctas">0</span> de
+              <span id="total-preguntas">0</span> - Puntaje:
+              <span id="puntaje">0</span>%
+            </p>
+            <button id="cerrar-modal">Cerrar</button>
+            <button id="reiniciar-cuestionario">Reiniciar Cuestionario</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2025 Proyecto Vacunas</p>
+    </footer>
+    <script src="scripts.js"></script>
+  </body>
+</html>

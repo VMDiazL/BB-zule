@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foro - Vacunas</title>
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Proyecto Vacunas</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="documentos.html">Documentos</a></li>
+          <li><a href="cuestionarios.html">Cuestionarios</a></li>
+          <li><a href="calculadora.html">Calculadora</a></li>
+          <li><a href="foro.html">Foro</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Foro de Preguntas</h2>
+        <form id="foro-form">
+          <!-- Verifica que el ID sea exactamente "foro-form" -->
+          <label for="pregunta">Escribe tu pregunta o tema de discusión:</label>
+          <textarea id="pregunta" name="pregunta" required></textarea>
+          <button type="submit">Publicar</button>
+        </form>
+      </section>
+      <section id="temas">
+        <h2>Temas de Discusión</h2>
+        <div id="lista-temas"></div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2025 Proyecto Vacunas</p>
+    </footer>
+    <script src="scripts.js"></script>
+  </body>
+</html>
