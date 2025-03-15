@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería - Vacunas</title>
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Vacunas</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="documentos.html">Documentos</a></li>
+          <li><a href="cuestionarios.html">Cuestionarios</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="calculadora.html">Calculadora</a></li>
+          <li><a href="foro.html">Foro</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Galería de Imágenes</h2>
+        <div class="galeria-grid">
+          <div class="galeria-item">
+            <img src="img/vacuna1.jpg" alt="Aplicación de vacuna" />
+          </div>
+          <div class="galeria-item">
+            <img src="img/vacuna2.jpg" alt="Niño recibiendo vacuna" />
+          </div>
+          <div class="galeria-item">
+            <img src="img/vacuna3.jpg" alt="Red de frío" />
+          </div>
+          <div class="galeria-item">
+            <img src="img/vacuna4.jpg" alt="Campaña de vacunación" />
+          </div>
+          <div class="galeria-item">
+            <img src="img/vacuna5.jpg" alt="Vial de vacuna" />
+          </div>
+          <div class="galeria-item">
+            <img src="img/vacuna6.jpg" alt="Personal médico" />
+          </div>
+          <div class="galeria-item">
+            <img src="img/vacuna7.jpg" alt="Personal médico" />
+          </div>
+          <div class="galeria-item">
+            <img src="img/vacuna8.jpg" alt="Personal médico" />
+          </div>
+          <div class="galeria-item">
+            <img src="img/vacuna9.jpg" alt="Personal médico" />
+          </div>
+        </div>
+        <!-- Modal para ampliar imagen (solo uno) -->
+        <div id="modal-imagen" class="modal hidden">
+          <div class="modal-contenido-imagen">
+            <span id="cerrar-modal-imagen">×</span>
+            <img id="imagen-ampliada" src="" alt="Imagen ampliada" />
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>© 2025 Proyecto Vacunas</p>
+    </footer>
+    <script src="scripts.js"></script>
+  </body>
+</html>
