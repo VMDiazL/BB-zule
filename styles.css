@@ -341,3 +341,52 @@ footer {
 .card a:hover {
     background-color: #45a049;
 }
+
+/* Estilos para el contenedor de documentos en 2 columnas */
+.documentos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 20px; /* Espacio entre las secciones */
+    padding: 20px;
+}
+
+/* Estilos para cada sección de documentos */
+.documentos-grid section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.documentos-grid h2 {
+    margin-top: 0;
+    color: #4CAF50;
+}
+
+.documentos-grid p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Estilos para los botones de descarga */
+.btn-descargar {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-descargar:hover {
+    background-color: #45a049;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .documentos-grid {
+        grid-template-columns: 1fr; /* 1 columna en dispositivos móviles */
+    }
+}
