@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Cuestionario
+    // Cuestionario (sin cambios)
     const quizForm = document.getElementById("quiz-form");
     const preguntasContainer = document.getElementById("preguntas-container");
     const modalResultados = document.getElementById("modal-resultados");
@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let preguntas = [];
         let preguntasSeleccionadas = [];
 
-        // Cargar preguntas desde JSON
         fetch("questions.json")
             .then((response) => response.json())
             .then((data) => {
@@ -37,13 +36,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 preguntasContainer.innerHTML = "<p>Error al cargar las preguntas.</p>";
             });
 
-        // Seleccionar 10 preguntas aleatorias
         function seleccionarPreguntasAleatorias() {
             const shuffled = [...preguntas].sort(() => 0.5 - Math.random());
             return shuffled.slice(0, 10);
         }
 
-        // Mostrar preguntas
         function mostrarPreguntasAleatorias() {
             preguntasSeleccionadas = seleccionarPreguntasAleatorias();
             preguntasContainer.innerHTML = "";
@@ -66,11 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        // Manejar el envío del formulario
         quizForm.addEventListener("submit", function (e) {
             e.preventDefault();
-            console.log("Formulario enviado"); // Depuración
-
+            console.log("Formulario enviado");
             const respuestasUsuario = {};
             let correctas = 0;
 
@@ -84,14 +79,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     const input = opcion.querySelector("input");
                     const feedback = opcion.querySelector(".feedback");
                     if (input.value === pregunta.correct) {
-                        opcion.style.backgroundColor = "#e8f5e9"; // Verde claro
+                        opcion.style.backgroundColor = "#e8f5e9";
                         feedback.textContent = "Respuesta correcta";
                         feedback.style.color = "green";
                         if (respuestasUsuario[`pregunta-${index}`] === pregunta.correct) {
                             correctas++;
                         }
                     } else if (respuestasUsuario[`pregunta-${index}`] === input.value) {
-                        opcion.style.backgroundColor = "#ffebee"; // Rojo claro
+                        opcion.style.backgroundColor = "#ffebee";
                         feedback.textContent = "Respuesta incorrecta";
                         feedback.style.color = "red";
                     } else {
@@ -101,8 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             });
 
-            // Mostrar resultados en el modal
-            console.log("Mostrando resultados"); // Depuración
+            console.log("Mostrando resultados");
             const detalleResultados = document.getElementById("detalle-resultados");
             detalleResultados.innerHTML = "";
             preguntasSeleccionadas.forEach((pregunta, index) => {
@@ -122,15 +116,13 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("total-preguntas").textContent = preguntasSeleccionadas.length;
             document.getElementById("puntaje").textContent = ((correctas / preguntasSeleccionadas.length) * 100).toFixed(2);
             modalResultados.classList.remove("hidden");
-            console.log("Modal debería estar visible"); // Depuración
+            console.log("Modal debería estar visible");
         });
 
-        // Cerrar el modal
         cerrarModalBtn.addEventListener("click", function () {
             modalResultados.classList.add("hidden");
         });
 
-        // Reiniciar el cuestionario
         reiniciarBtn.addEventListener("click", function () {
             modalResultados.classList.add("hidden");
             mostrarPreguntasAleatorias();
@@ -207,5 +199,47 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.setItem("temas", JSON.stringify(temas));
             }
         }
+    }
+
+    // Galería de imágenes
+    const galeriaItems = document.querySelectorAll(".galeria-item");
+    const modalImagen = document.getElementById("modal-imagen");
+    const imagenAmpliada = document.getElementById("imagen-ampliada");
+    const cerrarModalImagen = document.getElementById("cerrar-modal-imagen");
+
+    console.log("Galeria Items encontrados:", galeriaItems.length);
+    console.log("Modal Imagen:", modalImagen);
+    console.log("Imagen Ampliada:", imagenAmpliada);
+    console.log("Cerrar Modal Imagen:", cerrarModalImagen);
+
+    if (galeriaItems.length > 0 && modalImagen && imagenAmpliada && cerrarModalImagen) {
+        galeriaItems.forEach((item) => {
+            item.addEventListener("click", function () {
+                console.log("Clic en imagen detectado");
+                const imgSrc = this.querySelector("img").src;
+                imagenAmpliada.src = imgSrc;
+                modalImagen.classList.remove("hidden");
+                console.log("Modal debería estar visible");
+                imagenAmpliada.onload = function () {
+                    imagenAmpliada.style.width = `${this.naturalWidth}px`;
+                    imagenAmpliada.style.height = `${this.naturalHeight}px`;
+                    console.log(`Tamaño original aplicado: ${this.naturalWidth}x${this.naturalHeight}`);
+                };
+            });
+        });
+
+        cerrarModalImagen.addEventListener("click", function () {
+            console.log("Cerrar modal clic detectado");
+            modalImagen.classList.add("hidden");
+        });
+
+        modalImagen.addEventListener("click", function (e) {
+            if (e.target === modalImagen) {
+                console.log("Clic fuera del modal detectado");
+                modalImagen.classList.add("hidden");
+            }
+        });
+    } else {
+        console.error("Uno o más elementos de la galería no se encontraron");
     }
 });
