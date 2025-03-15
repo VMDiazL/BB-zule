@@ -300,3 +300,44 @@ footer {
 .modal {
     animation: fadeIn 0.3s ease-in-out;
 }
+
+/* Estilos para las imágenes dentro de las tarjetas */
+.card-icon {
+    display: block; /* Hace que la imagen sea un bloque */
+    margin: 0 auto 15px; /* Centra la imagen y agrega margen inferior */
+    width: 80px; /* Ajusta el tamaño de la imagen */
+    height: 80px; /* Ajusta el tamaño de la imagen */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin distorsión */
+}
+
+/* Estilos para las tarjetas */
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centra el contenido de la tarjeta */
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 10px; /* Espacio entre el título y el párrafo */
+}
+
+.card p {
+    margin-bottom: 15px; /* Espacio entre el párrafo y el enlace */
+}
+
+.card a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.card a:hover {
+    background-color: #45a049;
+}
